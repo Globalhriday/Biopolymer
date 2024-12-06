@@ -69,6 +69,7 @@ class MobileResearchFinder:
         except Exception as e:
             st.warning(f"Couldn't fetch details for {url}")
 
+```python
 def main():
     st.set_page_config(page_title="Biopolymer Research Finder", layout="wide")
     
@@ -108,7 +109,6 @@ def main():
                         st.write("**Contact Email:**", org['email'])
                         st.write("**Phone:**", org['phone'])
                         
-                
                 # Convert to DataFrame for download
                 df = pd.DataFrame(finder.results)
                 st.download_button(
@@ -123,4 +123,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
+```
