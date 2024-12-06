@@ -123,41 +123,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-def main():
-    st.set_page_config(page_title="Biopolymer Research Finder")
     
-    st.title("🔬 Biopolymer Research Organization Finder")
-    st.write("Find companies and organizations working on biopolymers, bioplastics, and compostable materials")
-    
-    col1, col2 = st.columns([2, 1])
-    
-    with col1:
-        search_type = st.selectbox(
-            "What are you looking for?",
-            ["Biopolymer Research Companies", 
-             "Bioplastic Manufacturers",
-             "Compostable Materials Research",
-             "Sustainable Packaging Companies"]
-        )
-    
-    with col2:
-        country = st.text_input("Country (optional)", "")
-    
-    max_results = st.slider("Maximum number of results", 5, 20, 10)
-    
-    if st.button("🔎 Search", type="primary"):
-        finder = MobileResearchFinder()
-        finder.search(search_type, country, max_results)
-        
-        if finder.results:
-            st.success(f"Found {len(finder.results)} organizations")
-            for org in finder.results:
-                with st.expander(f"📍 {org['name']}"):
-                    st.write("**Website:**", org['website'])
-                    st.write("**Description:**", org['description'])
-                    st.write("**Contact Email:**", org['email'])
-                    st.write("**Phone:**", org['phone'])
-
-if __name__ == "__main__":
-    main()
